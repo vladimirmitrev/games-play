@@ -15,20 +15,28 @@
         "summary": "Summary here",
         "_id": "c64db398-91cd-487c-b900-86058c0422f8"
     },
-    "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b": {
-        "title": "asdasd",
-        "category": "asdasd",
-        "maxLevel": "1213",
-        "imageUrl": "https://img.freepik.com/free-vector/joystick-game-sport-technology_138676-2045.jpg?w=2000",
-        "summary": "asdasdasd",
-        "_id": "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b"
+    "a14d0e76-d444-4c0f-ace1-53717f0d0329": {
+        "title": "Super Mario World",
+        "category": "Kids",
+        "maxLevel": "12",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/32/Super_Mario_World_Coverart.png",
+        "summary": "Very good old game",
+        "_id": "a14d0e76-d444-4c0f-ace1-53717f0d0329"
     },
-    "18bfdb21-333b-42bd-a32c-c114263f2569": {
-        "title": "adsfasdfasd",
-        "category": "asdfasdf",
-        "maxLevel": "123",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Ultimate_MK3.png/220px-Ultimate_MK3.png",
-        "summary": "MK3",
-        "_id": "18bfdb21-333b-42bd-a32c-c114263f2569"
+    "1e442ca2-fce4-4c07-b9a5-c2c82e53d81b": {
+        "title": "Counter Strike",
+        "category": "Action",
+        "maxLevel": "20",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/67/Counter-Strike_Box.jpg",
+        "summary": "Old school action",
+        "_id": "1e442ca2-fce4-4c07-b9a5-c2c82e53d81b"
+    },
+    "c4e7b119-43d5-4aac-9c92-b1f2c79cdd69": {
+        "title": "Half-Life",
+        "category": "Action",
+        "maxLevel": "7",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fa/Half-Life_Cover_Art.jpg?20200629074843",
+        "summary": "Amazing game!",
+        "_id": "c4e7b119-43d5-4aac-9c92-b1f2c79cdd69"
     }
 }
