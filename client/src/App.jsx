@@ -19,19 +19,26 @@ function App() {
     const [auth, setAuth] = useState({});
 
     const loginSubmitHandler = async (values) => {
-        console.log(values);
         const result = await authService.login(values.email, values.password);
 
         setAuth(result);
+        console.log(result);
         navigate(Path.Home);
     };
 
+    const values = {
+      loginSubmitHandler,
+      username: auth.username,
+      email: auth.email,
+      isAuthenticated: !!auth.email,
+    };
+
   return (
-    <AuthContext.Provider value={{loginSubmitHandler}}>
+    <AuthContext.Provider value={values}>
       <div id="box">
         <Header />
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path={Path.Home} element={<Home />}/>
           <Route path="/games" element={<GamesList />}/>
           <Route path="/games/create" element={<GameCreate />}/>
           <Route path="/login" element={<Login/>}/>

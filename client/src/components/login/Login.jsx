@@ -8,7 +8,7 @@ const LoginFormKeys = {
 }
 
 const Login = () => {
-  const { loginSubmitHandler} = useContext(AuthContext);
+  const { loginSubmitHandler } = useContext(AuthContext);
 
   const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
     [LoginFormKeys.Email]: '',
