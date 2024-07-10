@@ -5,7 +5,7 @@ import AuthContext from "../../contexts/authContext";
 const Header = () => {
     const {
         isAuthenticated,
-        username,
+        email,
     } = useContext(AuthContext);
 
     return (
@@ -17,7 +17,7 @@ const Header = () => {
                 <div id="user">
                     <Link to="/games/create">Create Game</Link>
                     <Link to="/logout">Logout</Link>
-                    <span>*|{username}|*</span>
+                    <span>*|{email}|*</span>
                 </div>
                 )}                
                 {!isAuthenticated && (

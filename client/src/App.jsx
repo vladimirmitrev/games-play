@@ -27,15 +27,24 @@ function App() {
     };
 
     const registerSubmitHandler = async (values) => {
-      // const result = await authService.register(values.email, values.password);
-      console.log(values);
+      if (values.password === values.confirmPassword) {
+        const result = await authService.register(values.email, values.password);
 
+        setAuth(result);
+        console.log(result);
+        
+        navigate(Path.Home);
+
+      } else {
+        console.log('Passwords doesn`t match')
+        return navigate(Path.Register)
+      }
     }
 
     const values = {
       loginSubmitHandler,
       registerSubmitHandler,
-      username: auth.username,
+      username: auth.username || auth.email,
       email: auth.email,
       isAuthenticated: !!auth.email,
     };

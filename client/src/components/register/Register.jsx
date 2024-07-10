@@ -5,7 +5,7 @@ import useForm from '../../hooks/useForm';
 const RegisterFormKeys = {
   Email: 'email',
   Password: 'password',
-  ConfirmPassword: 'confirm-password',
+  ConfirmPassword: 'confirmPassword',
 };
 
 const Register = () => {
@@ -45,7 +45,7 @@ const Register = () => {
           <label htmlFor="con-pass">Confirm Password:</label>
           <input
             type="password"
-            name="confirm-password"
+            name="confirmPassword"
             id="confirm-password"
             onChange={onChange}
             value={values[RegisterFormKeys.ConfirmPassword]}
