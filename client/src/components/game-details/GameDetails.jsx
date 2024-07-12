@@ -4,13 +4,14 @@ import * as gameService from '../../services/gameService';
 import * as commentService from '../../services/commentService';
 import AuthContext from "../../contexts/authContext";
 import reducer from "./commentReducer";
+import useForm from "../../hooks/useForm";
 
 const GameDetails = () => {
     const { email } = useContext(AuthContext);
     const { gameId } = useParams();
     const [game, setGame] = useState({});
-    // const [comments, setComments] = useState([]);
     const [comments, dispatch] = useReducer(reducer, []);
+    // const [comments, setComments] = useState([]);
     
     useEffect(() => {
         gameService.getOne(gameId)
@@ -25,15 +26,16 @@ const GameDetails = () => {
             });
     }, [gameId])
     
-    const addCommentHandler = async (e) => {
+    const addCommentHandler = async (values) => {
 
-        e.preventDefault();
+        // e.preventDefault();
 
-        const formData = new FormData(e.currentTarget);
+        // const formData = new FormData(e.currentTarget);
+
 
         const newComment = await commentService.create(
             gameId,
-            formData.get('comment'),
+            values.comment,
          );
 
          newComment.owner = { email };
@@ -42,8 +44,11 @@ const GameDetails = () => {
             type: 'ADD_COMMENT',
             payload: newComment
         })
-         
     }
+
+    const { values, onChange, onSubmit } = useForm(addCommentHandler, {
+        comment: '',
+    });
 
     return (
         <section id="game-details">
@@ -85,9 +90,9 @@ const GameDetails = () => {
 
             <article className="create-comment">
                 <label>Add new comment:</label>
-                <form className="form" onSubmit={addCommentHandler}>
+                <form className="form" onSubmit={onSubmit}>
                     {/* <input type="text" name="username" placeholder="Type username"/> */}
-                    <textarea name="comment" placeholder="Comment......"></textarea>
+                    <textarea name="comment" value={values.comment} onChange={onChange} placeholder="Comment......"></textarea>
                     <input className="btn submit" type="submit" value="Add Comment" />
                 </form>
             </article>
