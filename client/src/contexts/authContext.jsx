@@ -52,6 +52,7 @@ export const AuthProvider = ({
     username: auth.username || auth.email,
     email: auth.email,
     isAuthenticated: !!auth.accessToken,
+    _id: auth._id
   };
   return (
     <AuthContext.Provider value={values}>{children}</AuthContext.Provider>

@@ -1,4 +1,9 @@
-const Home = () => {
+import withAuth from "../HOC/withAuth";
+
+const Home = ({
+    email,
+    _id,
+}) => {
     return (
         <section id="welcome-world">
 
@@ -52,8 +57,12 @@ const Home = () => {
                 {/* <!-- Display paragraph: If there is no games  --> */}
                 <p className="no-articles">No games yet</p>
             </div>
+            <h1 style={{color: 'green'}}>{email}</h1>
+            <h1 style={{color: 'green'}}>{_id}</h1>
         </section>
     );
 }
 
-export default Home;
+const EnhancedHome = withAuth(Home);
+
+export default EnhancedHome;
