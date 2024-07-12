@@ -1,21 +1,28 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as gameService from '../../services/gameService';
 import * as commentService from '../../services/commentService';
 import AuthContext from "../../contexts/authContext";
+import reducer from "./commentReducer";
 
 const GameDetails = () => {
     const { email } = useContext(AuthContext);
     const { gameId } = useParams();
     const [game, setGame] = useState({});
-    const [comments, setComments] = useState([]);
+    // const [comments, setComments] = useState([]);
+    const [comments, dispatch] = useReducer(reducer, []);
     
     useEffect(() => {
         gameService.getOne(gameId)
             .then(setGame);
 
         commentService.getAll(gameId)
-            .then(setComments);
+            .then((result) => {
+                dispatch({
+                    type: 'GET_ALL_COMMENTS',
+                    payload: result,
+                })
+            });
     }, [gameId])
     
     const addCommentHandler = async (e) => {
@@ -29,7 +36,12 @@ const GameDetails = () => {
             formData.get('comment'),
          );
 
-         setComments(state => [...state, {...newComment, owner: { email }}]);
+         newComment.owner = { email };
+        //  setComments(state => [...state, {...newComment, owner: { email }}]);
+        dispatch({
+            type: 'ADD_COMMENT',
+            payload: newComment
+        })
          
     }
 
