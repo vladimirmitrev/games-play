@@ -1,4 +1,4 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useMemo, useReducer, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as gameService from '../../services/gameService';
 import * as commentService from '../../services/commentService';
@@ -48,9 +48,12 @@ const GameDetails = () => {
         })
     }
 
-    const { values, onChange, onSubmit } = useForm(addCommentHandler, {
+    //TODO: temporary solution for form reinitialization 
+    const initialValues = useMemo(() => ({
         comment: '',
-    });
+    }), []);
+
+    const { values, onChange, onSubmit } = useForm(addCommentHandler, initialValues);
 
     return (
         <section id="game-details">
