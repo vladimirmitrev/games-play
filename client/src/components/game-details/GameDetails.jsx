@@ -7,7 +7,7 @@ import reducer from "./commentReducer";
 import useForm from "../../hooks/useForm";
 
 const GameDetails = () => {
-    const { email } = useContext(AuthContext);
+    const { email, userId } = useContext(AuthContext);
     const { gameId } = useParams();
     const [game, setGame] = useState({});
     const [comments, dispatch] = useReducer(reducer, []);
@@ -80,12 +80,12 @@ const GameDetails = () => {
                     )}
                     
                 </div>
-
-                {/* <!-- Edit/Delete buttons ( Only for creator of this game )  -->
-                <div className="buttons">
-                    <a href="#" className="button">Edit</a>
-                    <a href="#" className="button">Delete</a>
-                </div> */}
+                { userId === game._ownerId && (
+                    <div className="buttons">
+                        <a href="#" className="button">Edit</a>
+                        <a href="#" className="button">Delete</a>
+                    </div>
+                )}
             </div>
 
             <article className="create-comment">
