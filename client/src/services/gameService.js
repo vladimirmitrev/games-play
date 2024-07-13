@@ -39,3 +39,17 @@ export const edit = async (gameId, gameData) => {
 }
 
 export const remove = async (gameId) => await request.remove(`${BASE_URL}/${gameId}`);
+    
+export const getLatest = async () => {
+    const query = new URLSearchParams({
+        // sortBy: `_createdOn`, //+ desc
+        offSet: 0,
+        pageSize: 3,
+    })
+    // const query = encodeURIComponent(`offset=0&pageSize=3`);
+    console.log(query);
+    const result = await request.get(`${BASE_URL}?sortBy=_createdOn%20desc&${query}`);
+    // const result =  await request.get(`${BASE_URL}?${query}`);
+
+    return result;
+} 

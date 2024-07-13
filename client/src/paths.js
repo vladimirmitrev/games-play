@@ -8,6 +8,7 @@ const Path = {
     GameEdit: '/games/:gameId/edit',
     GameDelete: '/games/:gameId/delete',
     Games: '/games',
+    GameDetails: '/games/:gameId',
 }
 
 export default Path;
