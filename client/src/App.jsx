@@ -12,12 +12,14 @@ import GamesList from "./components/games-list/GameList"
 import GameCreate from "./components/game-create/GameCreate"
 import GameDetails from "./components/game-details/GameDetails"
 import GameEdit from "./components/game-edit/GameEdit"
+import ErrorBoundary from "./components/ErrorBoundary";
 
 
 function App() {
     
 
   return (
+    <ErrorBoundary>
     <AuthProvider>
       <div id="box">
         <Header />
@@ -33,6 +35,7 @@ function App() {
         </Routes>
       </div>
     </AuthProvider>
+    </ErrorBoundary>
   )
 }
 

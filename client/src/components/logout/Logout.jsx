@@ -12,6 +12,7 @@ const Logout = () => {
         authService.logout()
             .then(() => logoutHandler())
             .catch(() => {
+                logoutHandler();
                 navigate(Path.Home)
             })
     }, [])

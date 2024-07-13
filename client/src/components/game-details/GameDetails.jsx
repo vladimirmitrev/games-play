@@ -55,6 +55,10 @@ const GameDetails = () => {
 
     const { values, onChange, onSubmit } = useForm(addCommentHandler, initialValues);
 
+    // if (Math.random() < 0.5) {
+    //     throw new Error('Game details error')
+    // }
+
     return (
         <section id="game-details">
             <h1>Game Details</h1>
