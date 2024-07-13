@@ -7,7 +7,7 @@ const Path = {
     Logout: 'logout',
     GameEdit: '/games/:gameId/edit',
     GameDelete: '/games/:gameId/delete',
-
+    Games: '/games',
 }
 
 export default Path;
