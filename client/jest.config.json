@@ -1,0 +1,14 @@
+{   
+    "transform": {
+        "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "setupFilesAfterEnv": 
+    [
+        "<rootDir>/src/test/setupTests.js"
+    ],
+    "testEnvironment": "jest-environment-jsdom",
+    "moduleNameMapper": {
+        "\\.(gif|tif|eot|svg|png)$": "<rootDir>/src/test/fileMock.js",
+        "\\.(css|less)$": "identity-obj-proxy"
+    }
+}
