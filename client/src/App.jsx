@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import {Routes, Route} from "react-router-dom";
 
 import {AuthProvider} from "./contexts/authContext"
@@ -20,6 +20,16 @@ const GameDetails = lazy(() => import('./components/game-details/GameDetails'));
 
 
 function App() {
+
+    const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/data/movies`)
+        .then((res) => res.json())
+        .then(result => {
+            setMovies(result);
+        })
+  }, []);
     
 
   return (
@@ -28,6 +38,9 @@ function App() {
       <div id="box">
         <Header />
         <Suspense fallback={<h1 style={{color: 'white'}}>Loading...</h1>}>
+        <ul>
+            {movies.map(movie => <li style={{color: 'white', fontSize: '30px'}} key={movie._id}>{movie.title}</li>)}
+        </ul>
         <Routes>
           <Route path={Path.Home} element={<Home />}/>
           <Route path="/games" element={<GamesList />}/>
